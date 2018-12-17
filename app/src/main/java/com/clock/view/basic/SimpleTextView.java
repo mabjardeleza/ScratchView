@@ -1,17 +1,15 @@
 package com.clock.view.basic;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.support.v7.widget.AppCompatTextView;
 
 /**
  * Created by Clock on 2016/8/2.
  */
-public class SimpleTextView extends TextView {
+public class SimpleTextView extends AppCompatTextView {
 
     private Paint mPaint1, mPaint2;
 
@@ -30,19 +28,13 @@ public class SimpleTextView extends TextView {
         initAttr();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public SimpleTextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initAttr();
-    }
-
     private void initAttr() {
         mPaint1 = new Paint();
-        mPaint1.setColor(getResources().getColor(android.R.color.holo_blue_bright));
+        mPaint1.setColor(getResources().getColor(android.R.color.holo_blue_bright, null));
         mPaint1.setStyle(Paint.Style.FILL);
 
         mPaint2 = new Paint();
-        mPaint2.setColor(getResources().getColor(android.R.color.holo_purple));
+        mPaint2.setColor(getResources().getColor(android.R.color.holo_purple, null));
         mPaint2.setStyle(Paint.Style.FILL);
 
     }

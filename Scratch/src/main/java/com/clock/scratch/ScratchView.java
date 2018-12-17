@@ -387,7 +387,7 @@ public class ScratchView extends View {
             mWatermark = null;
         } else {
             Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resId);
-            mWatermark = new BitmapDrawable(bitmap);
+            mWatermark = new BitmapDrawable(getResources(), bitmap);
             mWatermark.setTileModeXY(Shader.TileMode.REPEAT, Shader.TileMode.REPEAT);
         }
     }
@@ -425,20 +425,20 @@ public class ScratchView extends View {
     /**
      * 擦除状态监听器
      */
-    public static interface EraseStatusListener {
+    public interface EraseStatusListener {
 
         /**
          * 擦除进度
          *
          * @param percent 进度值，大于0，小于等于100；
          */
-        public void onProgress(int percent);
+        void onProgress(int percent);
 
         /**
          * 擦除完成回调函数
          *
          * @param view
          */
-        public void onCompleted(View view);
+        void onCompleted(View view);
     }
 }

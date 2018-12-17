@@ -77,7 +77,7 @@ public class SimpleXfermodeView extends View {
         Paint paint = new Paint();
         canvas.drawARGB(255, 229, 130, 133);
 
-        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), null, Canvas.ALL_SAVE_FLAG);//为Canvas创建一个新图层，图层是完全透明的
+        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), null);//为Canvas创建一个新图层，图层是完全透明的
 
         paint.setColor(0xFFE8B36D);
         int circleRadius = getWidth() / 5;
@@ -102,10 +102,7 @@ public class SimpleXfermodeView extends View {
         canvas.drawARGB(255, 229, 130, 133);
 
         //设置画布支持多图层
-        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), paint,
-                Canvas.ALL_SAVE_FLAG | Canvas.CLIP_SAVE_FLAG |
-                        Canvas.CLIP_TO_LAYER_SAVE_FLAG | Canvas.FULL_COLOR_LAYER_SAVE_FLAG |
-                        Canvas.HAS_ALPHA_LAYER_SAVE_FLAG | Canvas.MATRIX_SAVE_FLAG);
+        int layerId = canvas.saveLayer(0, 0, getWidth(), getHeight(), paint);
 
         canvas.drawBitmap(makeCircle(), 0, 0, paint);
 
